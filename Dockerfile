@@ -341,6 +341,9 @@ RUN apt-get install -y supervisor
 RUN mkdir -p /var/log/supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+#MISC
+RUN pip3 install -r /backend/requirements.txt
+RUN cp config/freeflow_config_example.py config/freeflow_config.py 
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
